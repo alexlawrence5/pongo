@@ -7,8 +7,8 @@ ASFLAGS:=-f bin
 
 .PHONY: osle_test
 osle_test: osle fixtures/text.txt.bin test/fs.test.bin
-	sdk/pack test/fs.test.bin
-	sdk/pack fixtures/text.txt.bin
+	sdk/pack test/fs.test.bin vmpongz.img
+	sdk/pack fixtures/text.txt.bin vmpongz.img
 
 .PHONY: osle
 osle: osle.o bin/ed.bin bin/more.bin bin/rm.bin bin/mv.bin bin/help.bin boot/bm.bin
