@@ -12,19 +12,13 @@ cp = CommandProcessor()
 def loading():
     for i in range(0, 101):
         time.sleep(0.0099)
-        sys.stdout.write("\rStarting hexrail.. " + str(i) + "%")
+        sys.stdout.write("\rStarting.. " + str(i) + "%")
         sys.stdout.flush()
 
 system_commands = [
-    'cp.cmd',
-    'cp.bored',
-    'cp.showfetch',
-    'cp.systurnoff',
-    'cp.ota',
-    'cp.usrdata',
-    'cp.hme',
-    'cp.watch',
-    'cp.movie'
+    'cp.ls',
+    'cp.cl',
+    'cp.usrdata'
 ]
 
 kernel = Kernel()
@@ -33,13 +27,12 @@ loading()
 
 c = colored
 print(c("THIS IS A SANDBOX-SPACE AND ITS NOT AN REAL ENVIRONMENT!", "yellow"))
+print("THIS IS AN REALLY-LIMITED ENVIRONMENT. PLEASE USE REAL EMULATORS TO GET FULL FUNCTIONALITY.")
 
 today = date.today()
-print("Today's date:", today)
 c = colored
-print(c("security patch: 1 march 2024", "red"))
 while True:
-    user_input = input(f"usr@hexrail:{os.curdir}/$>> ").split(" ")
+    user_input = input(f"> ").split(" ")
     entered_command = user_input[0]
     args = user_input[1:]
     
