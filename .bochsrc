@@ -2,5 +2,7 @@ megs: 32
 floppya: 1_44=vmpongz.img, status=inserted
 boot: a
 mouse: enabled=0
-display_library: sdl2
+# display_library: curses
+port_e9_hack: enabled=1
+log: bochslog.txt
 magic_break: enabled=1

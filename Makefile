@@ -3,7 +3,15 @@ AS:=nasm
 ASFLAGS:=-f bin
 
 %.bin: %.s
-	sdk/build $<
+	$(AS) $(ASFLAGS) $< -o $@
+
+.PHONY: dcon
+dcon: drivers/debugcon.bin
+	sdk/pack drivers/debugcon.bin vmpongz.img
+
+.PHONY: ramdisk
+ramdisk: drivers/ramdisk.bin
+	sdk/pack drivers/ramdisk.bin vmpongz.img
 
 .PHONY: osle_test
 osle_test: osle fixtures/text.txt.bin test/fs.test.bin
