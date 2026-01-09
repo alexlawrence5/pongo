@@ -1,6 +1,5 @@
 #!/bin/bash
 
 cd ../..
-make osle
-make dcon
-make ramdisk
+make pongo
+make drivers
