@@ -6,9 +6,10 @@ ASFLAGS:=-f bin
 	$(AS) $(ASFLAGS) $< -o $@
 
 .PHONY: drivers
-drivers: drivers/debugcon.bin drivers/ramdisk.bin
+drivers: drivers/debugcon.bin drivers/ramdisk.bin drivers/keyboard.bin
 	sdk/pack drivers/debugcon.bin vmpongz.img
 	sdk/pack drivers/ramdisk.bin vmpongz.img
+	sdk/pack drivers/keyboard.bin vmpongz.img
 
 .PHONY: osle_test
 osle_test: osle fixtures/text.txt.bin test/fs.test.bin
@@ -16,14 +17,13 @@ osle_test: osle fixtures/text.txt.bin test/fs.test.bin
 	sdk/pack fixtures/text.txt.bin vmpongz.img
 
 .PHONY: pongo
-pongo: osle.o bin/ed.bin bin/more.bin bin/rm.bin bin/mv.bin bin/help.bin bin/lush.bin boot/bm.bin
+pongo: osle.o bin/ed.bin bin/more.bin bin/rm.bin bin/mv.bin bin/lush.bin boot/bm.bin
 	dd if=/dev/zero of=vmpongz.img bs=512 count=2880
 	dd if=osle.o of=vmpongz.img bs=512 count=1 conv=notrunc
 	sdk/pack bin/ed.bin vmpongz.img
 	sdk/pack bin/more.bin vmpongz.img
 	sdk/pack bin/rm.bin vmpongz.img
 	sdk/pack bin/mv.bin vmpongz.img
-	sdk/pack bin/help.bin vmpongz.img
 	sdk/pack bin/lush.bin vmpongz.img
 	sdk/pack boot/bm.bin vmpongz.img
 
