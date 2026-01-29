@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo '[OK] Updating/Upgrading APT...'
+echo '[OK] Updating/Upgrading Pacman...'
 sudo pacman -Syu
 echo '[OK] Installing all dependencies...'
 sudo pacman -S build-essential nasm -y
