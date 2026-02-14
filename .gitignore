@@ -1,8 +1,0 @@
-*.o
-*.bin
-test.s
-.bochsrc.test
-blog.md
-.todo
-osle.img
-!./docs/osle.img
