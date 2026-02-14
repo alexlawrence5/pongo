@@ -1,6 +1,0 @@
-megs: 32
-floppya: 1_44=vmpongz.img, status=inserted
-boot: a
-mouse: enabled=0
-display_library: sdl2
-magic_break: enabled=1
